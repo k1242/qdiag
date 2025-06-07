@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BMF Game</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="https://qdiag.xyz/bmf/favicon.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <!-- ====== HEADER ====== -->
+  <div class="header">
+    <div class="leftControls">
+      <button id="menuBtn" class="hamburger">☰</button>
+      <div class="title">BMF</div>
+    </div>
+    <div class="rightControls">
+      <div id="timerDisplay" class="timer">
+        <span id="timerValue">00:00</span>
+      </div>
+      <a id="helpLink" href="#!">How&nbsp;to&nbsp;play</a>
+      <button id="newBtn">New Game</button>
+    </div>
+  </div>
+
+  <!-- ====== SETTINGS PANEL ====== -->
+  <div id="panel">
+    <div class="setting">
+      <label>Combine</label>
+      <div class="modeToggle">
+        <label class="modeBtn" id="orBtn"><input type="radio" hidden name="mode" value="bool">OR</label>
+        <label class="modeBtn checked" id="xorBtn"><input type="radio" hidden name="mode" value="mod" checked>XOR</label>
+      </div>
+    </div>
+
+    <div class="setting">
+      <label>Board size</label>
+      <div class="stepper" data-target="n">
+        <button class="minus">-</button><span id="nVal">5</span><button class="plus">+</button>
+      </div>
+    </div>
+
+    <div class="setting">
+      <label>Layers</label>
+      <div class="stepper" data-target="r">
+        <button class="minus">-</button><span id="rVal">3</span><button class="plus">+</button>
+      </div>
+    </div>
+
+    <div class="setting">
+      <label>Preview</label>
+      <label class="switch">
+        <input type="checkbox" id="previewToggle" checked>
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="setting">
+      <label>Timer</label>
+      <label class="switch">
+        <input type="checkbox" id="timerToggle" checked>
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="setting">
+      <label>Scale</label>
+      <div class="stepper" data-target="zoom">
+        <button class="minus">-</button><span id="zoomVal">100&nbsp;%</span><button class="plus">+</button>
+      </div>
+    </div>
+
+    <div class="setting codeInputWrap">
+      <label for="codeInput">Puzzle code</label>
+      <input id="codeInput" placeholder="Enter / will show code here">
+      <div class="codeButtons">
+        <button id="copyCodeBtn">Copy Code</button>
+        <button id="loadCodeBtn">Load Code</button>
+      </div>
+    </div>
+
+    <div class="setting">
+      <label>Editor mode</label>
+      <label class="switch">
+        <input type="checkbox" id="editorToggle">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <a class="panelLink" href="https://forms.gle/tAUDAFZZKGTbSEpk9" target="_blank" rel="noopener">Give Feedback</a>
+  </div>
+
+  <!-- ====== GAME ====== -->
+  <div id="app">
+    <div class="editWrap">
+      <div class="boardGroup">
+        <div id="rowToggles" class="rowToggles"></div>
+        <div class="boardArea">
+          <div class="gridCard">
+            <div id="editGrid" class="grid main"></div>
+          </div>
+          <div id="colToggles" class="colToggles"></div>
+        </div>
+      </div>
+      <div id="previews" class="previewWrap"></div>
+    </div>
+
+    <div class="btnbar"><button id="clearBtn">Clear</button></div>
+    <div id="cards"></div>
+  </div>
+
+  <!-- footer -->
+  <div class="footer">
+    <a id="tgLink" href="https://t.me/qdiag" target="_blank" rel="noopener">Telegram&nbsp;channel&nbsp;@qdiag</a>
+  </div>
+
+  <script src="tutorial.js"></script>
+  <script src="timer.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
