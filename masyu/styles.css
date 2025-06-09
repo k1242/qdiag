@@ -1,0 +1,129 @@
+:root {
+  --accent: #6c63ff;
+  --bg: #fafafa;
+  --panelW: 260px;
+  --headerH: 80px;
+}
+
+body {
+  font-family: Inter, sans-serif;
+  background: var(--bg);
+  color: #3e3d3a;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: var(--headerH);
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--headerH);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  z-index: 100;
+  pointer-events: none;
+}
+.header * { pointer-events: auto; }
+
+.hamburger {
+  font-size: 1.8rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-left: 12px;
+}
+
+.leftControls, .rightControls {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.timer {
+  background: rgba(0,0,0,0.05);
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.timer.solved {
+  background: #718096;
+  color: #fff;
+}
+
+#panel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: var(--panelW);
+  background: #fff;
+  border-right: 1px solid #dadada;
+  transform: translateX(-100%);
+  transition: .25s ease;
+  z-index: 90;
+  padding: 80px 20px;
+}
+#panel.open { transform: translateX(0); }
+
+.setting {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.stepper { display: flex; align-items: center; gap: 12px; }
+.stepper button {
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 6px;
+  background: #e0e0e0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.stepper button:hover { background: #d4d4d4; }
+.stepper span { min-width: 40px; text-align: center; font-weight: 600; }
+
+.switch { position: relative; display: inline-block; width: 46px; height: 26px; }
+.switch input { opacity: 0; width: 0; height: 0; }
+.slider {
+  position: absolute; inset: 0;
+  background: #ccc;
+  border-radius: 26px;
+  transition: .2s;
+  cursor: pointer;
+}
+.slider:before {
+  content: '';
+  position: absolute;
+  left: 2px; bottom: 2px;
+  width: 22px; height: 22px;
+  background: #fff;
+  border-radius: 50%;
+  transition: .2s;
+}
+.switch input:checked + .slider { background: var(--accent); }
+.switch input:checked + .slider:before { transform: translateX(20px); }
+
+#board {
+  border: 2px solid #ccc;
+  background: #fff;
+  touch-action: manipulation;
+  margin-top: 20px;
+}
